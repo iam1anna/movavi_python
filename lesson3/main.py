@@ -51,3 +51,6 @@ x = "12'345'678"
 temp = x.replace("'", "")
 number = int(temp)
 print(temp)
+
+
+print(1)
