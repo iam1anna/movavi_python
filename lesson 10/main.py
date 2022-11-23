@@ -93,6 +93,10 @@ while not should_end:
     text = input("Введи сообщение")
     text = list(text)
     shift = int(input("Сдвиг: "))
+    if shift > len(alphabet):
+        shift = shift % len(alphabet)
+    elif shift < -len(alphabet):
+        shift = shift % -len(alphabet)
 
 
 
@@ -105,8 +109,12 @@ while not should_end:
             position = alphabet.index(letter) #позволяет определить индекс letter
             if position + shift > len(alphabet): #вышел за пределы вверх
                 new_position = position + shift - len(alphabet)
-            elif position + shift < 0:
+            elif position + shift < -len(alphabet): #вышли за низ алфавита
                 new_position = position + shift + len(alphabet) #вышел за пределы вниз
             else:
                 new_position = position + shift
             cifer_text += alphabet[new_position]
+
+    print(cifer_text)
+restart = input("Еще раз? y - да, n - нет")
+if restart == "n":
