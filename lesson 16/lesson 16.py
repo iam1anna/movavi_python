@@ -113,4 +113,25 @@ while True:
         print(f"{p2Name} сообщает, что в его коробке {p1Box}")
     else:
         print(f"{p1Name} сообщает, что в его коробке {p2Box}")
+# Обмен
+    change = input("ебе нужно решить, меняетесь ли вы коробками\n"
+                   "Д(меняться) или Н(не меняться)").upper()
+    if change == "Д":
+        p1Box, p2Box = p2Box, p1Box #меняем коробки
+        input(f"{p1Name} закрывает глаза, (Enter)...")
+        if p2Box == "ПУСТОТА":
+            box2 = box_carrot.format(COLOR2.center(13).split).split("\n")
 
+        elif p2Box == "МОРКОВКА":
+            box2 = box_empty.format(COLOR2.center(13).split).split("\n")
+        else:
+            box2 = box_close.format(COLOR2.center(13).split).split("\n")
+
+    else:
+        break
+print("===================Вывод литературоведческого анализа==================")
+print(generate_boxes(p1Box, p2Box))
+if p1Box == "МОРКОВКА":
+    print(p1Name, "победитель")
+else:
+    print(p2Name, "победитель")
